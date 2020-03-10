@@ -5,6 +5,8 @@
 	<projects>
 	</projects>
 	<buildSpec>
+
+
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
@@ -34,4 +36,5 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+
 </projectDescription>
