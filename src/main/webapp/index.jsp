@@ -60,8 +60,8 @@
       </div>
     </div>
   </div>
-  <div class="col-md-2 col-lg-3 hidden-sm hidden-xs">
-  	<img src="ad.png" style="width:75%;height:100%"/>
+  <div class="col-md-3 col-lg-3 d-none d-md-block">
+  	<img src="images/ad.png" style="width:75%;height:100%"/>
   </div>
   </div>
   <div class="row justify-content-center mb-2">
