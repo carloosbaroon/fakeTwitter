@@ -11,7 +11,7 @@ public class StrutsJsonDAO {
 	public static Connection conn() throws Exception {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost/json?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+			return DriverManager.getConnection("jdbc:mysql://localhost/country?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
