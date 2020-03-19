@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-2 col-lg-3 hidden-sm hidden-xs">
+  <div class="col-md-2 col-lg-3 d-none d-sm-block d-sm-none d-md-block">
   	<img src="ad.png" style="width:75%;height:100%"/>
   </div>
   </div>
