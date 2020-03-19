@@ -62,6 +62,7 @@
   </div>
 
   <div class="col-md-3 col-lg-3 d-none d-md-block">
+  <img src = "images/ad.png" style="width:75%; height:100%"/>
 
   </div>
   </div>
