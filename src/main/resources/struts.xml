@@ -7,11 +7,9 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="default" extends="json-default" namespace="/">
-		<action name="countrystate" class="org.websparrow.StrutsJsonAction">
-			<result name="SUCCESS">/index.jsp</result>
+		<action name="registeruser" class="org.twitter.action.RegisterAction">
+			<result name="REGISTER" type="json"></result>
 		</action>
-		<action name="stateviacountry" class="org.websparrow.StrutsJsonAction" method="fetchStateList">
-			<result name="SUCCESS" type="json"></result>
-		</action>
+		
 	</package>
 </struts>
