@@ -30,7 +30,7 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" >Registro</a>
+				<a class="navbar-brand">Registro</a>
 			</div>
 			
 		</div>

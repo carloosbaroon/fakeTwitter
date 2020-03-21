@@ -27,5 +27,6 @@ public class UsuarioBean {
 	public void setUpass(String upass) {
 		this.upass = upass;
 	}
+	
 
 }
