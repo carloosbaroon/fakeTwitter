@@ -2,7 +2,7 @@ package org.twitter.bean;
 
 public class UsuarioBean {
 	
-	private String uname, uemail, upass;
+	private String usuarioid, uname, uemail, upass;
 
 	public String getUname() {
 		return uname;
@@ -26,6 +26,14 @@ public class UsuarioBean {
 
 	public void setUpass(String upass) {
 		this.upass = upass;
+	}
+
+	public String getUsuarioid() {
+		return usuarioid;
+	}
+
+	public void setUsuarioid(String usuarioid) {
+		this.usuarioid = usuarioid;
 	}
 
 }

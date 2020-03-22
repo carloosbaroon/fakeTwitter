@@ -1,23 +1,25 @@
 package org.twitter.action;
 
-import org.twitter.dao.UsuarioDAO;
+import org.twitter.dao_imp.UsuarioDAOImp;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+
+
+import org.twitter.bean.UsuarioBean;
+import org.twitter.dao_imp.UsuarioDAOImp;
+
+import org.twitter.dao.UsuarioDAO;
+
 public class RegisterAction extends ActionSupport{
+	private UsuarioBean usuario;
+	public void setUsuario(UsuarioBean usuario) {this.usuario = usuario;}
+
+	public UsuarioBean getUsuario() {return usuario;}
 
 	private static final long serialVersionUID = -3827439829486925185L;
-	// getters and setters...
+
 	private String uname, uemail, upass, msg;
-	UsuarioDAO dao = null;
-
-	@Override
-	public String execute() throws Exception {
-		dao = new UsuarioDAO();
-		msg = dao.registerUser(uname, uemail, upass);
-		return "REGISTER";
-	}
-
 	public String getUname() {
 		return uname;
 	}
@@ -50,13 +52,32 @@ public class RegisterAction extends ActionSupport{
 		this.msg = msg;
 	}
 
-	public UsuarioDAO getDao() {
-		return dao;
-	}
+	UsuarioDAOImp dao = null;
 
-	public void setDao(UsuarioDAO dao) {
-		this.dao = dao;
+	@Override
+	public String execute() throws Exception {
+		
+		
+		try {
+			dao = new UsuarioDAOImp();
+			msg = dao.registerUser(uname, uemail, upass);
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			msg = "Error al crear paciente";
+			return ERROR;
+		}
+		
 	}
+	
+	
+	
+	
+	
+	
+
+	
+	
 
 }
 

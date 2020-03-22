@@ -5,11 +5,22 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="true"/>
+    <constant name="struts.ui.theme" value="bootstrap" />
 
 	<package name="default" extends="json-default" namespace="/">
-		<action name="registeruser" class="org.twitter.action.RegisterAction">
-			<result name="REGISTER" type="json"></result>
-		</action>
+	
+	 <default-action-ref name="registeruser"/>
+
+        <action name="registeruser" class="org.twitter.action.RegisterAction">
+        	<result name="success" type="json"></result>
+        </action>
+        
+	
+		<action name="goto_twitter">
+        	<result >twitter.jsp</result>
+       
+      </action>
 		
 	</package>
 </struts>
