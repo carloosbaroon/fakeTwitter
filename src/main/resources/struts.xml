@@ -10,7 +10,7 @@
 
 	<package name="default" extends="json-default" namespace="/">
 	
-	 <default-action-ref name="registeruser"/>
+	 <default-action-ref name="goto_twitter"/>
 
         <action name="registeruser" class="org.twitter.action.RegisterAction">
         	<result name="success" type="json"></result>
@@ -18,7 +18,7 @@
         
 	
 		<action name="goto_twitter">
-        	<result >twitter.jsp</result>
+        	<result>/twitter.jsp</result>
        
       </action>
 		
