@@ -10,18 +10,21 @@
 
 	<package name="default" extends="json-default" namespace="/">
 	
-	 <default-action-ref name="goto_twitter"/>
+	 <default-action-ref name="index"/>
+	 
+	 <action name="index">
+        	<result>/index.jsp</result>
+	    </action>
+	 
 
         <action name="registeruser" class="org.twitter.action.RegisterAction" method = "execute">
         	<result name="success">/twitter.jsp</result>
         	<result name="error" >/index.jsp</result>
         </action>
-        
 	
 		<action name="goto_twitter">
-        	<result></result>
-       
-      </action>
+        	<result>/twitter.jsp</result>
+	    </action>
 		
 	</package>
 </struts>
