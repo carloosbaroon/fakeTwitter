@@ -30,7 +30,9 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand">Registro</a>
+			<s:url action="goto_twitter" var="twitter"/>
+						 
+				<a class="navbar-brand" href="${twitter}">Registro</a>
 			</div>
 			
 		</div>
