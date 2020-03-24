@@ -17,7 +17,7 @@
 	    </action>
 	 
 
-        <action name="registeruser" class="org.twitter.action.RegisterAction" method = "execute">
+        <action name="registeruser" class="org.twitter.action.RegisterAction" method = "crearUsuario">
         	<result name="success">/twitter.jsp</result>
         	<result name="error" >/index.jsp</result>
         </action>

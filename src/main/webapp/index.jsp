@@ -20,9 +20,9 @@
 	
 		<div class="col-sm-4">
 			<s:form action="registeruser">
-				<s:textfield name="uname" label="ID" />
-				<s:textfield name="uemail" label="Nombre" />
-				<s:textfield name="uname" label="Direccion" />
+				<s:textfield name="usuario.id_usuario" label="Name" />
+				<s:textfield name="usuario.correo" label="Nombre" />
+				<s:textfield name="usuario.contraseña" label="Contraseña" />
 
 				<a> <s:submit value="Registrarme"/> </a>
 			</s:form>

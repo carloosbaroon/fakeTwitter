@@ -1,40 +1,37 @@
 package org.twitter.bean;
 
+
+
 public class UsuarioBean {
+	private String id_usuario;
+	private String nombre;
+	private String correo;
+	private String contraseña;
 	
-	private String usuarioid, uname, uemail, upass;
-
-	public String getUname() {
-		return uname;
+	public String getId_usuario() {
+		return id_usuario;
 	}
-
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setId_usuario(String id_usuario) {
+		this.id_usuario = id_usuario;
 	}
-
-	public String getUemail() {
-		return uemail;
+	public String getNombre() {
+		return nombre;
 	}
-
-	public void setUemail(String uemail) {
-		this.uemail = uemail;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-
-	public String getUpass() {
-		return upass;
+	public String getCorreo() {
+		return correo;
 	}
-
-	public void setUpass(String upass) {
-		this.upass = upass;
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public String getContraseña() {
+		return contraseña;
+	}
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
 	}
 	
-
-	public String getUsuarioid() {
-		return usuarioid;
-	}
-
-	public void setUsuarioid(String usuarioid) {
-		this.usuarioid = usuarioid;
-	}
 
 }
