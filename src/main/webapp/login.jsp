@@ -9,7 +9,9 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	 <div class="navbar-header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
             <s:url action="goto_twitter" var="twitter"/>
 
                 <a class="navbar-brand" href="index.jsp">Registro</a>
@@ -19,16 +21,18 @@
 
                 <a class="navbar-brand" href="login.jsp">Login</a>
             </div>
-	
-		<div class="col-sm-4">
-			<s:form action="registeruser">
-				<s:textfield name="usuario.name" label="Nombre" />
-				<s:textfield name="usuario.mail" label="Correo" />
-				<s:textfield name="usuario.password" label="Contraseña" />
 
-				<a> <s:submit value="Registrarme"/> </a>
-			</s:form>
-	
-	</div>
+        </div>
+    </nav>
+
+        <div class="col-sm-4">
+            <s:form action="loginuser">
+                <s:textfield name="usuario.mail" label="Correo" />
+                <s:textfield name="usuario.password" label="Contraseña" />
+
+                <a> <s:submit value="Registrarme"/> </a>
+            </s:form>
+
+    </div>
 </body>
 </html>

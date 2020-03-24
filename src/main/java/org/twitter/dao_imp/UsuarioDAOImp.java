@@ -15,6 +15,15 @@ import org.twitter.bean.UsuarioBean;
 
 public class UsuarioDAOImp extends Conexion implements UsuarioDAO{
 	
+private UsuarioBean usuario;
+	
+	public UsuarioBean getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioBean usuario) {
+		this.usuario = usuario;
+	}
 	
 	public static Connection myconnection() throws Exception {
 		try {
@@ -56,6 +65,34 @@ public class UsuarioDAOImp extends Conexion implements UsuarioDAO{
       
 
      
+	}
+	
+	public String login(UsuarioBean usuario) throws Exception{
+		System.out.println("Entra Login");
+		
+		String ret = "error";
+      
+    	try {
+	        String sql = "SELECT id_usuario FROM usuario WHERE";
+	        sql+=" mail = ? AND password = ?";
+	        PreparedStatement ps = myconnection().prepareStatement(sql);
+	        ps.setString(1, usuario.getMail());
+	        ps.setString(2, usuario.getPassword());
+	        ResultSet rs = ps.executeQuery();
+	
+	        while (rs.next()) {
+	        usuario.setId_usuario(rs.getString(1));
+	        ret = "success";
+	        }
+    	}catch(Exception e) {
+			e.printStackTrace();
+    	}finally {
+			if (myconnection() != null) {
+				myconnection().close();
+			}
+		}
+      
+      return ret;
 	}
 
 }
