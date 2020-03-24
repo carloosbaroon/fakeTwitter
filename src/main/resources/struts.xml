@@ -21,9 +21,18 @@
         	<result name="success">/twitter.jsp</result>
         	<result name="error" >/index.jsp</result>
         </action>
+        
+        <action name="loginuser" class="org.twitter.action.RegisterAction" method = "loginUsuario">
+        	<result name="success">/twitter.jsp</result>
+        	<result name="error" >/index.jsp</result>
+        </action>
 	
 		<action name="goto_twitter">
         	<result>/twitter.jsp</result>
+	    </action>
+	    
+	    <action name="goto_login">
+        	<result>/login.jsp</result>
 	    </action>
 		
 	</package>

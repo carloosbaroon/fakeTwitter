@@ -12,26 +12,21 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-			<ul>
 			<s:url action="goto_twitter" var="twitter"/>
 						 
-				<li><a class="navbar-brand" href=index.jsp>Registro</a></li>
+				<a class="navbar-brand" href="index.jsp">Registro</a>
 			</div>
 			<div class="navbar-header">
 			<s:url action="goto_login" var="login"/>
 						 
-				<li><a class="navbar-brand" href="login.jsp">Login</a></li>
-			</ul>
-			
+				<a class="navbar-brand" href="login.jsp">Login</a>
 			</div>
-			
 			
 		</div>
 	</nav>
 	
 		<div class="col-sm-4">
-			<s:form action="registeruser">
-				<s:textfield name="usuario.name" label="Nombre" />
+			<s:form action="loginuser">
 				<s:textfield name="usuario.mail" label="Correo" />
 				<s:textfield name="usuario.password" label="Contraseña" />
 
