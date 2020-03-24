@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -20,9 +22,9 @@
 	
 		<div class="col-sm-4">
 			<s:form action="registeruser">
-				<s:textfield name="usuario.id_usuario" label="Name" />
-				<s:textfield name="usuario.correo" label="Nombre" />
-				<s:textfield name="usuario.contraseña" label="Contraseña" />
+				<s:textfield name="usuario.name" label="Nombre" />
+				<s:textfield name="usuario.mail" label="Correo" />
+				<s:textfield name="usuario.password" label="ContraseÃ±a" />
 
 				<a> <s:submit value="Registrarme"/> </a>
 			</s:form>

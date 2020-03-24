@@ -4,9 +4,9 @@ package org.twitter.bean;
 
 public class UsuarioBean {
 	private String id_usuario;
-	private String nombre;
-	private String correo;
-	private String contraseña;
+	private String name;
+	private String mail;
+	private String password;
 	
 	public String getId_usuario() {
 		return id_usuario;
@@ -14,24 +14,27 @@ public class UsuarioBean {
 	public void setId_usuario(String id_usuario) {
 		this.id_usuario = id_usuario;
 	}
-	public String getNombre() {
-		return nombre;
+
+	public String getName() {
+		return name;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getCorreo() {
-		return correo;
+	public String getMail() {
+		return mail;
 	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getPassword() {
+		return password;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
-
 }
+	
+
+

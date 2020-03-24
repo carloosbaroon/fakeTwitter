@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import com.opensymphony.xwork2.ActionSupport;
 
 
+
 import org.twitter.bean.UsuarioBean;
 import org.twitter.dao_imp.UsuarioDAOImp;
 import org.twitter.dao.UsuarioDAO;
 
 public class RegisterAction extends ActionSupport {
-	
+	private static final long serialVersionUID = 1L;
 	private UsuarioBean usuario;
 	private String msg;
 	public UsuarioBean getUsuario() {return usuario;}
@@ -21,6 +22,7 @@ public class RegisterAction extends ActionSupport {
 		UsuarioDAO daoUsuario= new UsuarioDAOImp();
 		try {
 			daoUsuario.insertar(usuario);
+			System.out.println(usuario.getName());
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -28,6 +30,13 @@ public class RegisterAction extends ActionSupport {
 			return ERROR;
 		}
 	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
 
 
 }

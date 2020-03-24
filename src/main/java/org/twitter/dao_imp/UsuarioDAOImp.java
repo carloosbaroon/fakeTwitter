@@ -1,10 +1,10 @@
 package org.twitter.dao_imp;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.SQLException;
 
 import org.twitter.database.Conexion;
 
@@ -15,31 +15,47 @@ import org.twitter.bean.UsuarioBean;
 
 public class UsuarioDAOImp extends Conexion implements UsuarioDAO{
 	
+	
+	public static Connection myconnection() throws Exception {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			return DriverManager.getConnection("jdbc:mysql://localhost/twitter?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 
 	@Override
 	public void insertar(UsuarioBean usuario) throws Exception {
-		Connection conn = null;
-	      
-   	 	establishConnection();
-        conn = getCon();
-        String sql = "INSERT INTO usuario (nombre, correo, contraseña)";
-        sql+="VALUES (?, ?, ?)";
-        
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, usuario.getNombre());
-        ps.setString(2, usuario.getCorreo());
-        ps.setString(3, usuario.getContraseña());
-     
-        
-        ps.execute();
+		System.out.println("Entro");
+		try {
+			  String sql = "INSERT INTO Usuario (name, mail, password)";
+		        sql+="VALUES (?, ?, ?)";
+		        
+		        PreparedStatement ps = myconnection().prepareStatement(sql);
+		        ps.setString(1, usuario.getName());
+		        ps.setString(2, usuario.getMail());
+		        ps.setString(3, usuario.getPassword());
+		        
+		        System.out.println(usuario.getName());
+		        System.out.println(usuario.getMail());
+		        System.out.println(usuario.getPassword());
+		        
+		        ps.execute();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			if (myconnection() != null) {
+				myconnection().close();
+			}
+		}
+      
 
-        if (conn != null) {
-           try {
-              closeConnection();
-           } catch (Exception e) {
-				e.printStackTrace();
-           }
-        }
+     
 	}
 
 }
