@@ -22,9 +22,10 @@
         	<result name="error" >/index.jsp</result>
         </action>
         
-        <action name="loginuser" class="org.twitter.action.RegisterAction" method = "loginUsuario">
-        	<result name="success">/twitter.jsp</result>
-        	<result name="error" >/index.jsp</result>
+<action name="loginuser" class="org.twitter.action.LoginAction">
+            <result name="success">/twitter.jsp</result>
+            <result name="error" >/index.jsp</result>
+
         </action>
 	
 		<action name="goto_twitter">

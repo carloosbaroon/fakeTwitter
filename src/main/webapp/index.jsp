@@ -9,25 +9,18 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header">
-			<ul>
-			<s:url action="goto_twitter" var="twitter"/>
-						 
-				<li><a class="navbar-brand" href=index.jsp>Registro</a></li>
-			</div>
-			<div class="navbar-header">
-			<s:url action="goto_login" var="login"/>
-						 
-				<li><a class="navbar-brand" href="login.jsp">Login</a></li>
-			</ul>
-			
-			</div>
-			
-			
-		</div>
-	</nav>
+
+	 <div class="navbar-header">
+            <s:url action="goto_twitter" var="twitter"/>
+
+                <a class="navbar-brand" href="index.jsp">Registro</a>
+            </div>
+            <div class="navbar-header">
+            <s:url action="goto_login" var="login"/>
+
+                <a class="navbar-brand" href="login.jsp">Login</a>
+            </div>
+
 	
 		<div class="col-sm-4">
 			<s:form action="registeruser">
