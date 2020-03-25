@@ -7,10 +7,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.twitter.bean.UsuarioBean;
+
 
 
 public class ComentarioDAOImp {
 	
+	private UsuarioBean usuario;
+	
+	public UsuarioBean getUsuario() {
+		return usuario;
+	}
 	
 	public static Connection myconnection() throws Exception {
 		try {
@@ -27,7 +34,7 @@ public class ComentarioDAOImp {
 			String sql = "INSERT INTO Comentario2 (fecha, contenido)";
 	        sql+="VALUES (?, ?)";
 			PreparedStatement ps = myconnection().prepareStatement(sql);
-			
+			System.out.println("Id usuario: "+ usuario.getId_usuario());
 			ps.setString(1, fecha);
 			ps.setString(2, contenido);
 			

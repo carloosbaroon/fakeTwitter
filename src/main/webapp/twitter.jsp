@@ -35,6 +35,7 @@
 	<div class="col-lg-5">
 		
 		<div class="form-group">
+		<s:hidden name="usuario.id"></s:hidden>
 			<input type="text" name="fecha" id="fecha" class="form-control input-sm" placeholder="Fecha">
 		</div>
 		<div class="form-group">

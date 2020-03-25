@@ -3,6 +3,7 @@ package org.twitter.action;
 
 import java.sql.Date;
 
+import org.twitter.bean.UsuarioBean;
 import org.twitter.dao_imp.ComentarioDAOImp;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -10,15 +11,24 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CommentAction extends ActionSupport {
 	private static final long serialVersionUID = -3827439829486925185L;
 	// getters and setters...
-	private String contenido, msg;
-	private String fecha;
+	private UsuarioBean usuario;
+	private String contenido, msg, fecha;
 	ComentarioDAOImp dao = null;
-
+	
 	@Override
 	public String execute() throws Exception {
+		System.out.println("Entra");
 		dao = new ComentarioDAOImp();
 		msg = dao.registerComment(fecha,contenido);
 		return "REGISTER";
+	}
+	
+	public UsuarioBean getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioBean usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getContenido() {
@@ -44,5 +54,9 @@ public class CommentAction extends ActionSupport {
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
+
+	
+
+	
 }
 
