@@ -14,11 +14,12 @@
 	function registerComment() {
 		var fecha = $("#fecha").val();
 		var contenido = $("#contenido").val();
-		var idUsuario = $("#idUsuario").val();
+		var id = $("#idUsuario").val();
+		console.log(id);
 		$.ajax({
 			type : "POST",
 			url : "registercomment.action",
-			data : "fecha=" + fecha + "&contenido=" + contenido + "&idUsuario=" + idUsuario,
+			data : "fecha=" + fecha + "&contenido=" + contenido + "&id=" + id,
 			success : function(data) {
 				var ht = data.msg;
 				$("#resp").html(ht);
@@ -28,6 +29,8 @@
 			}
 		});
 	}
+</script>
+<script>
 </script>
 </head>
 <body>

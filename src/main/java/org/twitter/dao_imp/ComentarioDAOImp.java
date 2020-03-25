@@ -29,14 +29,15 @@ public class ComentarioDAOImp {
 		}
 	}
 	
-	public String registerComment(String fecha, String contenido) throws SQLException, Exception {
+	public String registerComment(String id, String fecha, String contenido) throws SQLException, Exception {
 		try {
-			String sql = "INSERT INTO Comentario2 (fecha, contenido)";
-	        sql+="VALUES (?, ?)";
+			String sql = "INSERT INTO Comentario (id_usuario, fecha, contenido)";
+	        sql+="VALUES (?, ?, ?)";
 			PreparedStatement ps = myconnection().prepareStatement(sql);
 			//System.out.println("Id usuario: "+ usuario.getId_usuario());
-			ps.setString(1, fecha);
-			ps.setString(2, contenido);
+			ps.setString(1, id);
+			ps.setString(2, fecha);
+			ps.setString(3, contenido);
 			
 			ps.executeUpdate();
 			return "Registration Successful";
