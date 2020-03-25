@@ -19,6 +19,7 @@ CREATE TABLE Comentario
  id_usuario   Int NOT NULL ,
  date  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  contenido     Varchar(45) NOT NULL ,
+ nombre_usuario    Varchar(45) NOT NULL ,
 
 PRIMARY KEY (id_comentario)
 
