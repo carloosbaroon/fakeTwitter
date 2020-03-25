@@ -34,7 +34,7 @@ public class ComentarioDAOImp {
 			String sql = "INSERT INTO Comentario2 (fecha, contenido)";
 	        sql+="VALUES (?, ?)";
 			PreparedStatement ps = myconnection().prepareStatement(sql);
-			System.out.println("Id usuario: "+ usuario.getId_usuario());
+			//System.out.println("Id usuario: "+ usuario.getId_usuario());
 			ps.setString(1, fecha);
 			ps.setString(2, contenido);
 			

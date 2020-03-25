@@ -14,10 +14,11 @@
 	function registerComment() {
 		var fecha = $("#fecha").val();
 		var contenido = $("#contenido").val();
+		var idUsuario = $("#idUsuario").val();
 		$.ajax({
 			type : "POST",
 			url : "registercomment.action",
-			data : "fecha=" + fecha + "&contenido=" + contenido,
+			data : "fecha=" + fecha + "&contenido=" + contenido + "&idUsuario=" + idUsuario,
 			success : function(data) {
 				var ht = data.msg;
 				$("#resp").html(ht);
@@ -35,7 +36,7 @@
 	<div class="col-lg-5">
 		
 		<div class="form-group">
-		<s:hidden name="usuario.id"></s:hidden>
+		<s:hidden id="idUsuario" name="usuario.id_usuario"></s:hidden>
 			<input type="text" name="fecha" id="fecha" class="form-control input-sm" placeholder="Fecha">
 		</div>
 		<div class="form-group">

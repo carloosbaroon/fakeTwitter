@@ -12,17 +12,33 @@ public class CommentAction extends ActionSupport {
 	private static final long serialVersionUID = -3827439829486925185L;
 	// getters and setters...
 	private UsuarioBean usuario;
-	private String contenido, msg, fecha;
+	private String contenido, msg, fecha, idUsuario;
 	ComentarioDAOImp dao = null;
 	
 	@Override
 	public String execute() throws Exception {
 		System.out.println("Entra");
+		System.out.println("Id usuario: "+ idUsuario);
 		dao = new ComentarioDAOImp();
+		
 		msg = dao.registerComment(fecha,contenido);
 		return "REGISTER";
 	}
 	
+	
+	
+	public String getIdUsuario() {
+		return idUsuario;
+	}
+
+
+
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+
+
 	public UsuarioBean getUsuario() {
 		return usuario;
 	}
