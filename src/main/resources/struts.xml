@@ -27,6 +27,10 @@
             <result name="error" >/index.jsp</result>
 
         </action>
+        
+        <action name="registercomment" class="org.twitter.action.CommentAction" >
+			<result name="REGISTER" type="json"></result>
+		</action>
 	
 		<action name="goto_twitter">
         	<result>/twitter.jsp</result>

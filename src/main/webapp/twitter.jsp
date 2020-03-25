@@ -4,14 +4,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Twitter</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function registerComment() {
+		var fecha = $("#fecha").val();
+		var contenido = $("#contenido").val();
+		$.ajax({
+			type : "POST",
+			url : "registercomment.action",
+			data : "fecha=" + fecha + "&contenido=" + contenido,
+			success : function(data) {
+				var ht = data.msg;
+				$("#resp").html(ht);
+			},
+			error : function(data) {
+				alert("Some error occured.");
+			}
+		});
+	}
+</script>
 </head>
 <body>
 
 <div class="container">
+	<div class="col-lg-5">
+		
+		<div class="form-group">
+			<input type="text" name="fecha" id="fecha" class="form-control input-sm" placeholder="Fecha">
+		</div>
+		<div class="form-group">
+			<input type="text" name="contenido" id="contenido" class="form-control input-sm" placeholder="Contenido">
+		</div>
+		<button onclick="registerComment();" type="button" class="btn btn-success btn-block">Register</button>
+		<div class="text-center" id="resp" style="margin-top: 14px;"></div>
+	</div>
   <div class="row justify-content-center mb-2">
     <div class="col-md-10 col-lg-8 aling-self-center">
       <form action="#" class="d-flex justify-content-end flex-wrap">
