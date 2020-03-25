@@ -1,6 +1,5 @@
 package org.twitter.action;
 
-import java.util.ArrayList;
 
 
 import com.opensymphony.xwork2.ActionSupport;

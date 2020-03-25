@@ -9,6 +9,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
+
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -34,5 +35,6 @@
             </s:form>
 
     </div>
+
 </body>
 </html>

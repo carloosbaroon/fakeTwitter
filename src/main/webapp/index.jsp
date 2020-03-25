@@ -9,6 +9,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
+
 	 <div class="navbar-header">
             <s:url action="goto_twitter" var="twitter"/>
 
@@ -19,6 +20,7 @@
 
                 <a class="navbar-brand" href="login.jsp">Login</a>
             </div>
+
 	
 		<div class="col-sm-4">
 			<s:form action="registeruser">
