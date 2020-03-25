@@ -22,7 +22,7 @@ public class ComentarioDAOImp {
 	public static Connection myconnection() throws Exception {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost/twitter?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "014420200116145966");
+			return DriverManager.getConnection("jdbc:mysql://localhost/twitter?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -55,7 +55,7 @@ public class ComentarioDAOImp {
 	public ResultSet report() throws SQLException, Exception {
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT id_usuario,date,contenido FROM Comentario";
+			String sql = "SELECT nombre_usuario,date,contenido FROM Comentario";
 			PreparedStatement ps = myconnection().prepareStatement(sql);
 			rs = ps.executeQuery(sql);
 			return rs;

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 public class ComentarioBean {
 	
-	private String id_comentario, id_usuario, contenido;
+	private String id_comentario, id_usuario, contenido, nombre_usuario;
 	private Timestamp date;
 	public String getId_comentario() {
 		return id_comentario;
@@ -21,6 +21,12 @@ public class ComentarioBean {
 	}
 	public void setDate(Timestamp date) {
 		this.date = date;
+	}
+	public String getNombre_usuario() {
+		return nombre_usuario;
+	}
+	public void setNombre_usuario(String nombre_usuario) {
+		this.nombre_usuario = nombre_usuario;
 	}
 	public void setId_usuario(String id_usuario) {
 		this.id_usuario = id_usuario;

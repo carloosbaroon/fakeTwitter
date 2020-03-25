@@ -24,7 +24,7 @@ public class ReportAction extends ActionSupport {
 			if (rs != null) {
 				while (rs.next()) {
 					bean = new ComentarioBean();
-					bean.setId_usuario(rs.getString("id_usuario"));
+					bean.setNombre_usuario(rs.getString("nombre_usuario"));
 					bean.setDate(rs.getTimestamp("date"));
 					bean.setContenido(rs.getString("contenido"));
 					beanList.add(bean);

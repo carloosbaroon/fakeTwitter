@@ -44,7 +44,7 @@
 					   " <div class='media-12 border p-2'>" +
 					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
 					       " <div class='media-body'>" + 
-					          "<h4>" + this.id_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
+					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
 					         " <p>" +this.contenido + "</p>"+ 
 					         " <div class='text-rigth'>" +
 					         "<button onclick='fetchOldRecord(this);' class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
@@ -249,7 +249,6 @@
 
 	</div>
 
-</div>
 
 </body>
 </html>
