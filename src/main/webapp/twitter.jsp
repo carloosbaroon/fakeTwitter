@@ -63,10 +63,12 @@
 	}
 	
 	function updateNewRecord() {
+		
+		var id_comentario = $("#idComentario").val();
 		$.ajax({
 			type:"POST",
-			url:"updateuser.action",
-			data:"contenido="+$("#contenido").val(),
+			url:"updatecomment.action",
+			data:"contenido="+$("#contenido").val()+ "&id_comentario=" + id_comentario,
             success:function(result){
             	var ht= result.msg;
     			$("#resp").html(ht);
@@ -200,6 +202,10 @@
 		
 			<div class="form-group">
 			<s:hidden id="idUsuario" name="usuario.id_usuario"></s:hidden>
+			<div class="form-group">
+			<s:hidden id="idComentario" name="comentario.id_comentario"></s:hidden>
+				
+			</div>
 				
 			</div>
 			<div class="form-group">
@@ -254,7 +260,7 @@
   
   
   
-  
+</div>
   
 </div>
 

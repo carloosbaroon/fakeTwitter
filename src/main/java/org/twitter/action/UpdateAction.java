@@ -3,18 +3,47 @@ package org.twitter.action;
 import org.twitter.dao_imp.ComentarioDAOImp;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.twitter.bean.ComentarioBean;
 
 public class UpdateAction extends ActionSupport {
 	private static final long serialVersionUID = -3827439829486925185L;
 	// getters and setters
-	private String contenido,msg;
+	private String contenido,id,msg;
+	private ComentarioBean bean;
 	
+	public ComentarioBean getBean() {
+		return bean;
+	}
+
+	public void setBean(ComentarioBean bean) {
+		this.bean = bean;
+	}
+
 	ComentarioDAOImp dao = null;
 
 	@Override
 	public String execute() throws Exception {
+		System.out.println("Entra");
+		System.out.println("Contenido: "+ contenido);
+		System.out.println("Id comenatario: "+ id.toString());
 		dao = new ComentarioDAOImp();
-		msg = dao.updateUser(contenido);
+		setMsg(dao.updateComment(contenido,id));
 		return "UPDATE";
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public String getContenido() {
+		return contenido;
+	}
+
+	public void setContenido(String contenido) {
+		this.contenido = contenido;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }

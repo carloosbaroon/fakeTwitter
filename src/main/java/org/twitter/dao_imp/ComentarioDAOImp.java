@@ -69,12 +69,13 @@ public class ComentarioDAOImp {
 	}
 	
 	
-	public String updateUser(String contenido)
+	public String updateComment(String contenido, String id)
 			throws SQLException, Exception {
 		try {
-			String sql = "UPDATE Comentario SET contenido= ?, date= NOW()";
+			String sql = "UPDATE Comentario SET contenido= ?, date= NOW() WHERE id_comentario=?";
 			PreparedStatement ps = myconnection().prepareStatement(sql);
 			ps.setString(1, contenido);
+			ps.setString(2, id);
 			
 			ps.executeUpdate();
 			return "Update Successful";
