@@ -17,12 +17,14 @@ CREATE TABLE Comentario
 (
   id_comentario Int NOT NULL AUTO_INCREMENT,
  id_usuario   Int NOT NULL ,
- fecha  Date        NOT NULL ,
+ date  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  contenido     Varchar(45) NOT NULL ,
 
 PRIMARY KEY (id_comentario)
 
 );
+
+
 
 
 CREATE TABLE Respuesta

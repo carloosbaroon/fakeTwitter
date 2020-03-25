@@ -32,7 +32,7 @@ public class ComentarioDAOImp {
 	public String registerComment(String id, String contenido) throws SQLException, Exception {
 		try {
 			String sql = "INSERT INTO Comentario (id_usuario, date, contenido)";
-	        sql+="VALUES (?, CURDATE(), ?)";
+	        sql+="VALUES (?, NOW(), ?)";
 			PreparedStatement ps = myconnection().prepareStatement(sql);
 			//System.out.println("Id usuario: "+ usuario.getId_usuario());
 			ps.setString(1, id);
