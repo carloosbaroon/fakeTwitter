@@ -1,11 +1,12 @@
 package org.twitter.bean;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ComentarioBean {
 	
 	private String id_comentario, id_usuario, contenido;
-	private Date fecha;
+	private Timestamp date;
 	public String getId_comentario() {
 		return id_comentario;
 	}
@@ -14,6 +15,12 @@ public class ComentarioBean {
 	}
 	public String getId_usuario() {
 		return id_usuario;
+	}
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
 	}
 	public void setId_usuario(String id_usuario) {
 		this.id_usuario = id_usuario;
@@ -24,11 +31,6 @@ public class ComentarioBean {
 	public void setContenido(String contenido) {
 		this.contenido = contenido;
 	}
-	public Date getFecha() {
-		return fecha;
-	}
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
+	
 
 }

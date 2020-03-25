@@ -67,5 +67,25 @@ public class ComentarioDAOImp {
 			}
 		}
 	}
+	
+	
+	public String updateUser(String contenido)
+			throws SQLException, Exception {
+		try {
+			String sql = "UPDATE Comentario SET contenido= ?, date= NOW()";
+			PreparedStatement ps = myconnection().prepareStatement(sql);
+			ps.setString(1, contenido);
+			
+			ps.executeUpdate();
+			return "Update Successful";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return e.getMessage();
+		} finally {
+			if (myconnection() != null) {
+				myconnection().close();
+			}
+		}
+	}
 
 }

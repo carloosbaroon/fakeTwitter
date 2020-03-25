@@ -1,7 +1,6 @@
 package org.twitter.action;
 
 
-import java.sql.Date;
 
 import org.twitter.bean.UsuarioBean;
 import org.twitter.dao_imp.ComentarioDAOImp;
@@ -12,7 +11,7 @@ public class CommentAction extends ActionSupport {
 	private static final long serialVersionUID = -3827439829486925185L;
 	// getters and setters...
 	private UsuarioBean usuario;
-	private String contenido, msg, fecha, id;
+	private String contenido, msg, id;
 	ComentarioDAOImp dao = null;
 	
 	@Override
@@ -61,13 +60,7 @@ public class CommentAction extends ActionSupport {
 		this.msg = msg;
 	}
 
-	public String getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
+	
 
 	
 

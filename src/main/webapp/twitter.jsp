@@ -37,73 +37,95 @@
 			success: function(result){
 				var tblData="";
 				$.each(result.beanList, function() {					
-					tblData += "<tr><td>" + this.id_usuario + "</td>" + 
-					"<td>" + this.fecha + "</td>" + 
-					"<td>" + this.contenido + "</td>" + 
-					"<td>"+
-					"<button  class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+
-					"<button  class='btn btn-sm btn-danger'>Delete</button>"+
-					"</td></tr>" ;
+					tblData += 
+				    
+					   " <div class='media-12 border p-2'>" +
+					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
+					       " <div class='media-body'>" + 
+					          "<h4>" + this.id_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
+					         " <p>" +this.contenido + "</p>"+ 
+					         " <div class='text-rigth'>" +
+					         "<button onclick='fetchOldRecord(this);' class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
+					            "<a href='#'>Editar</a>"+
+					            "<a href='#'>Borrar</a>"+
+					           "</div>"+
+					       " </div>"+
+					      "</div>";
+					    
+					  
 				});
-				$("#tbody").html(tblData);
+				$("#container").html(tblData);
 			},
 			error: function(result){
 				alert("Some error occured.");
 			}
 		});
 	}
+	
+	function updateNewRecord() {
+		$.ajax({
+			type:"POST",
+			url:"updateuser.action",
+			data:"contenido="+$("#contenido").val(),
+            success:function(result){
+            	var ht= result.msg;
+    			$("#resp").html(ht);
+            },
+            error: function(result){
+            	alert("Some error occured.");
+            }
+		});	
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </script>
 <script>
 </script>
 </head>
-<body onload="report();">
+<body onload="report();" >
 
 
-	<div class="container">
-		<table class="table table-bordered">
-			<thead>
-				<tr class="bg-info">
-					<th>Id_Usuario</th>
-					<th>Date</th>
-					<th>Contenido</th>
-					
-				</tr>
-			</thead>
-			<tbody id="tbody">
-			</tbody>
-		</table>
-	</div>
+	
 
 <div class="container">
-	<div class="col-lg-5">
-		
-		<div class="form-group">
-		<s:hidden id="idUsuario" name="usuario.id_usuario"></s:hidden>
-			
-		</div>
-		<div class="form-group">
-			<input type="text" name="contenido" id="contenido" class="form-control input-sm" placeholder="Contenido">
-		</div>
-		<button onclick="registerComment();" type="button" class="btn btn-success btn-block">Register</button>
-		<div class="text-center" id="resp" style="margin-top: 14px;"></div>
-	</div>
-  <div class="row justify-content-center mb-2">
+	
+	
+	 <div class="row justify-content-center mb-2">
     <div class="col-md-10 col-lg-8 aling-self-center">
       <form action="#" class="d-flex justify-content-end flex-wrap">
         <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Comentario"></textarea>
-        <button type="submit" class="btn btn-primary">Comentar</button>
+        <button type="button" data-toggle="modal" data-target="#myModal">Comentar</button>
       </form>
     </div>
   </div>
-  <div class="row justify-content-center mb-2">
-    <div class="col-md-9 col-lg-9 align-self-center">
+  
+ 
+  <div class="row justify-content-center mb-2" >
+    <div class="col-md-9 col-lg-9 align-self-center" id="container" >
     <div class="media-12 border p-2">
       <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
       <div class="media-body">
         <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <div class="text-rigth">
-          <a href="#">Responder</a>
+          <button type="button" data-toggle="modal" data-target="#myModal">Responder</button>
           <a href="#">Editar</a>
           <a href="#">Borrar</a>
         </div>
@@ -144,8 +166,8 @@
   </div>
   </div>
   <div class="row justify-content-center mb-2">
-    <div class="col-md-10 align-self-center">
-      <div class="media-12 border p-2">
+    <div class="col-md-10 col-lg-10 align-self-center">
+    <div class="media-12 border p-2">
         <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
         <div class="media-body">
           <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
@@ -159,6 +181,81 @@
       </div>
     </div>
   </div>
+  
+  
+   <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div  class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Agregar respuestas</h4>
+        </div>
+        <div class="modal-body">
+          
+         <div class="row justify-content-center mb-2">
+          <div class="col-md-10 col-lg-8 aling-self-center">
+		
+			<div class="form-group">
+			<s:hidden id="idUsuario" name="usuario.id_usuario"></s:hidden>
+				
+			</div>
+			<div class="form-group">
+			 <textarea class="form-control" rows="5" id="contenido" name="contenido" placeholder="Comentario"></textarea>
+				
+			</div>
+			<button onclick="registerComment();" type="button" class="btn btn-success btn-block">Register</button>
+			<div class="text-center" id="resp" style="margin-top: 14px;"></div>
+	      </div>
+          
+          
+          
+           		
+        </div>
+       </div>
+        
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Fin primer Modal -->
+  
+  <div class="container" id="updateBlock">
+		<div class="modal fade" id="updateModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Update New Information</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<div class="form-group">
+									<input type="text" name="contenido" id="contenido" class="form-control input-sm" placeholder="Contenido">
+								</div>
+							</div>
+							
+						<button onclick="updateNewRecord();" class="btn btn-info btn-block">Update</button>
+						<div id="resp" class="text-center" style="margin-top: 13px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+  
+  
+  
+  
+  
+  
 </div>
 
 </body>

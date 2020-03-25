@@ -35,6 +35,9 @@
 			<result name="REPORT" type="json"></result>
 		</action>
 	
+		<action name="updateuser" class="org.twitter.action.UpdateAction">
+			<result name="UPDATE" type="json"></result>
+		</action>
 		<action name="goto_twitter">
         	<result>/twitter.jsp</result>
 	    </action>
