@@ -12,14 +12,14 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	function registerComment() {
-		var fecha = $("#fecha").val();
+		
 		var contenido = $("#contenido").val();
 		var id = $("#idUsuario").val();
 		console.log(id);
 		$.ajax({
 			type : "POST",
 			url : "registercomment.action",
-			data : "fecha=" + fecha + "&contenido=" + contenido + "&id=" + id,
+			data : "contenido=" + contenido + "&id=" + id,
 			success : function(data) {
 				var ht = data.msg;
 				$("#resp").html(ht);
@@ -40,7 +40,7 @@
 		
 		<div class="form-group">
 		<s:hidden id="idUsuario" name="usuario.id_usuario"></s:hidden>
-			<input type="text" name="fecha" id="fecha" class="form-control input-sm" placeholder="Fecha">
+			
 		</div>
 		<div class="form-group">
 			<input type="text" name="contenido" id="contenido" class="form-control input-sm" placeholder="Contenido">

@@ -21,7 +21,7 @@ public class CommentAction extends ActionSupport {
 		System.out.println("Id usuario: "+ id.toString());
 		dao = new ComentarioDAOImp();
 		
-		msg = dao.registerComment(id,fecha,contenido);
+		msg = dao.registerComment(id,contenido);
 		return "REGISTER";
 	}
 
