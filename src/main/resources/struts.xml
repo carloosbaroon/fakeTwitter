@@ -31,6 +31,9 @@
         <action name="registercomment" class="org.twitter.action.CommentAction" >
 			<result name="REGISTER" type="json"></result>
 		</action>
+		<action name="report" class="org.twitter.action.ReportAction">
+			<result name="REPORT" type="json"></result>
+		</action>
 	
 		<action name="goto_twitter">
         	<result>/twitter.jsp</result>

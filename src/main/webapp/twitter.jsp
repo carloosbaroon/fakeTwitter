@@ -29,11 +29,50 @@
 			}
 		});
 	}
+	
+	function report() {		
+		$.ajax({			
+			type:"GET",
+			url:"report.action",
+			success: function(result){
+				var tblData="";
+				$.each(result.beanList, function() {					
+					tblData += "<tr><td>" + this.id_usuario + "</td>" + 
+					"<td>" + this.fecha + "</td>" + 
+					"<td>" + this.contenido + "</td>" + 
+					"<td>"+
+					"<button  class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+
+					"<button  class='btn btn-sm btn-danger'>Delete</button>"+
+					"</td></tr>" ;
+				});
+				$("#tbody").html(tblData);
+			},
+			error: function(result){
+				alert("Some error occured.");
+			}
+		});
+	}
 </script>
 <script>
 </script>
 </head>
-<body>
+<body onload="report();">
+
+
+	<div class="container">
+		<table class="table table-bordered">
+			<thead>
+				<tr class="bg-info">
+					<th>Id_Usuario</th>
+					<th>Date</th>
+					<th>Contenido</th>
+					
+				</tr>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+	</div>
 
 <div class="container">
 	<div class="col-lg-5">

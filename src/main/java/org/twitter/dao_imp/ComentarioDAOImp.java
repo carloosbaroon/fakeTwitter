@@ -49,5 +49,23 @@ public class ComentarioDAOImp {
 			}
 		}
 	}
+	
+	
+	public ResultSet report() throws SQLException, Exception {
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT id_usuario,date,contenido FROM Comentario";
+			PreparedStatement ps = myconnection().prepareStatement(sql);
+			rs = ps.executeQuery(sql);
+			return rs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if (myconnection() != null) {
+				myconnection().close();
+			}
+		}
+	}
 
 }
