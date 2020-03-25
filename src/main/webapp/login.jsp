@@ -29,6 +29,7 @@
         <div class="col-sm-4">
             <s:form action="loginuser">
                 <s:textfield name="usuario.mail" label="Correo" />
+                <s:textfield name="usuario.name" label="Nombre" />
                 <s:textfield name="usuario.password" label="Contraseña" />
 
                 <a> <s:submit value="Registrarme"/> </a>

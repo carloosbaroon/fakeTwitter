@@ -17,7 +17,7 @@ public class Conexion {
 	private Connection con = null;
 	private String connectionUrl = "jdbc:mysql://localhost/twitter?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private String username = "root";
-	private String password = "";
+	private String password = "014420200116145966";
 	
 	public int getNoCon() {
 		return noCon;

@@ -15,11 +15,13 @@
 		
 		var contenido = $("#contenido").val();
 		var id = $("#idUsuario").val();
+		var nombre = $("#nameUsuario").val();
 		console.log(id);
+		console.log(nombre);
 		$.ajax({
 			type : "POST",
 			url : "registercomment.action",
-			data : "contenido=" + contenido + "&id=" + id,
+			data : "contenido=" + contenido + "&id=" + id + "&nombre=" + nombre,
 			success : function(data) {
 				var ht = data.msg;
 				$("#resp").html(ht);
@@ -77,26 +79,7 @@
             	alert("Some error occured.");
             }
 		});	
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 </script>
 <script>
 </script>
@@ -109,15 +92,14 @@
 <div class="container">
 	
 	
-	 <div class="row justify-content-center mb-2">
-    <div class="col-md-10 col-lg-8 aling-self-center">
-      <form action="#" class="d-flex justify-content-end flex-wrap">
-        <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Comentario"></textarea>
-        <button type="button" data-toggle="modal" data-target="#myModal">Comentar</button>
-      </form>
+	<div class="row justify-content-center mb-2">
+    	<div class="col-md-10 col-lg-8 aling-self-center">
+      		<form action="#" class="d-flex justify-content-end flex-wrap">
+        		<textarea class="form-control" rows="5" id="comment" name="text" placeholder="Comentario"></textarea>
+        		<button type="button" data-toggle="modal" data-target="#myModal">Comentar</button>
+     		</form>
     </div>
   </div>
-  
  
   <div class="row justify-content-center mb-2" >
     <div class="col-md-9 col-lg-9 align-self-center" id="container" >
@@ -202,10 +184,14 @@
 		
 			<div class="form-group">
 			<s:hidden id="idUsuario" name="usuario.id_usuario"></s:hidden>
+
 			<div class="form-group">
 			<s:hidden id="idComentario" name="comentario.id_comentario"></s:hidden>
 				
 			</div>
+
+			<s:hidden id="nameUsuario" name="usuario.name"></s:hidden>
+
 				
 			</div>
 			<div class="form-group">
@@ -255,13 +241,14 @@
 			</div>
 		</div>
 	</div>
-  
-  
-  
+
   
   
 </div>
   
+
+	</div>
+
 </div>
 
 </body>
