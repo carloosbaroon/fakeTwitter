@@ -38,6 +38,10 @@
 		<action name="report" class="org.twitter.action.ReportAction">
 			<result name="REPORT" type="json"></result>
 		</action>
+		
+		<action name="reportans" class="org.twitter.action.ReportAnswerAction">
+			<result name="REPORT" type="json"></result>
+		</action>
 	
 		<action name="updatecomment" class="org.twitter.action.UpdateAction">
 			<result name="UPDATE" type="json"></result>

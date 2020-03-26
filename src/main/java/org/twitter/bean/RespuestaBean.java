@@ -4,13 +4,14 @@ import java.sql.Timestamp;
 
 public class RespuestaBean {
 	
-	private String id_comentario, id_usuario, contenido, nombre_usuario;
+	private String id_respuesta, id_usuario, contenido, nombre_usuario;
 	private Timestamp date;
-	public String getId_comentario() {
-		return id_comentario;
+	
+	public String getId_respuesta() {
+		return id_respuesta;
 	}
-	public void setId_comentario(String id_comentario) {
-		this.id_comentario = id_comentario;
+	public void setId_respuesta(String id_respuesta) {
+		this.id_respuesta = id_respuesta;
 	}
 	public String getId_usuario() {
 		return id_usuario;

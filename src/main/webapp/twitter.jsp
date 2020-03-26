@@ -32,6 +32,28 @@
 		});
 	}
 	
+	
+	function registerAnswer() {
+		
+		var contenidoa = $("#contenidoa").val();
+		var ida = $("#idUsuarioa").val();
+		var nombrea = $("#nameUsuarioa").val();
+		console.log(ida);
+		console.log(nombrea);
+		$.ajax({
+			type : "POST",
+			url : "registeranswer.action",
+			data : "contenidoa=" + contenidoa + "&ida=" + ida + "&nombrea=" + nombrea,
+			success : function(data) {
+				var ht = data.msg;
+				$("#resp").html(ht);
+			},
+			error : function(data) {
+				alert("Some error occured.");
+			}
+		});
+	}
+	
 	function report() {		
 		$.ajax({			
 			type:"GET",
@@ -50,7 +72,42 @@
 					         " <div class='text-rigth'>" +
 					         "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
 					         "<button onclick='deleteTweet(this);' class='btn btn-sm btn-danger'>Delete</button>"+ 
-					            "<a href='#'>Borrar</a>"+
+					         "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#respuestaModal'>Respuesta</button>"+  
+					           "</div>"+
+					       " </div>"+
+					      "</div>";
+					    
+					  
+				});
+				$("#container").html(tblData);
+			},
+			error: function(result){
+				alert("Some error occured.");
+			}
+		});
+	}
+	
+	
+	function reportAns() {		
+		$.ajax({			
+			type:"GET",
+			url:"reportans.action",
+			success: function(result){
+				var tblData="";
+				$.each(result.beanList, function() {					
+					tblData += 
+				    
+					   " <div class='media-12 border p-2' id='dl'>" +
+					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
+					       " <div class='media-body' >" + 
+					       	"<p id='idComentarioD'>" + this.id_respuesta+ "</p>"+
+					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
+					         " <p>" +this.contenido + "</p>"+ 
+					         " <div class='text-rigth'>" +
+					         "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
+					         "<button onclick='deleteTweet(this);' class='btn btn-sm btn-danger'>Delete</button>"+ 
+					         "<button  onclick='reportAns();class='btn btn-sm btn-danger'>Respuesta</button>"+ 
+					         
 					           "</div>"+
 					       " </div>"+
 					      "</div>";
@@ -182,6 +239,56 @@
 				
 			</div>
 			<button onclick="registerComment();" type="button" class="btn btn-success btn-block">Register</button>
+			<div class="text-center" id="resp" style="margin-top: 14px;"></div>
+	      </div>
+          
+           		
+        </div>
+       </div>
+        
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Fin primer Modal -->
+  
+  
+   <!-- Modal -->
+  <div class="modal fade" id="respuestaModal" role="dialog">
+    <div  class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Agregar respuestas</h4>
+        </div>
+        <div class="modal-body">
+          
+         <div class="row justify-content-center mb-2">
+          <div class="col-md-10 col-lg-8 aling-self-center">
+		
+			<div class="form-group">
+			<s:hidden id="idUsuarioa" name="usuario.id_usuario"></s:hidden>
+
+			<div class="form-group">
+			<s:hidden id="idComentarioa" name="comentario.id_comentario"></s:hidden>
+				
+			</div>
+
+			<s:hidden id="nameUsuarioa" name="usuario.name"></s:hidden>
+
+				
+			</div>
+			<div class="form-group">
+			 <textarea class="form-control" rows="5" id="contenidoa" name="contenidoa" placeholder="Comentario"></textarea>
+				
+			</div>
+			<button onclick="registerAnswer();" type="button" class="btn btn-success btn-block">Respuesta</button>
 			<div class="text-center" id="resp" style="margin-top: 14px;"></div>
 	      </div>
           
