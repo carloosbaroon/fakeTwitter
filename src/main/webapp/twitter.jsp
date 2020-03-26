@@ -44,7 +44,7 @@
 					   " <div class='media-12 border p-2'>" +
 					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
 					       " <div class='media-body'>" + 
-					       	"<i id='idComentarioD'>" + this.id_comentario + "</i>"+
+					       	"<p id='idComentarioD'>" + this.id_comentario + "</p>"+
 					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
 					         " <p>" +this.contenido + "</p>"+ 
 					         " <div class='text-rigth'>" +
@@ -84,12 +84,12 @@
 	
 	function deleteTweet(that) {	
 		var id_comentario = $("#idComentarioD").val();
+		console.log(id_comentario); 
 		$.ajax({
 			type:"POST",
 			url:"deletetweet.action",
 			data:"id_comentario="+ id_comentario,
 			success: function(data){
-				console.log($(id_comentario).val());
 				if(data.msg==="Delete Successful"){
 					alert(data.msg)
 					$(that).closest('div').remove();
@@ -102,6 +102,7 @@
 				alert("Some error occured.");
 			}
 		});
+	}
 	
 
 </script>
@@ -130,7 +131,7 @@
     <div class="media-12 border p-2">
       <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
       <div class="media-body">
-	      	<i id="idComentarioD">ID</i>
+	      	<p id="idComentarioD">ID</p>
 	        <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
 	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 	        <div class="text-rigth">

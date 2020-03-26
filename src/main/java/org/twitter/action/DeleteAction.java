@@ -26,7 +26,7 @@ public class DeleteAction extends ActionSupport{
 	public String execute() throws Exception {
 		System.out.println("Entra a delete?");
 		ComentarioDAOImp dao = new ComentarioDAOImp();
-		System.out.println("Id usuario: "+ id_comentario);
+		System.out.println("Id comentario: "+ id_comentario.toString());
 		msg = dao.deleteTweet(id_comentario);
 		return "DELETE";
 	}
