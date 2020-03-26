@@ -9,24 +9,29 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	 <div class="navbar-header">
-            <s:url action="goto_twitter" var="twitter"/>
-
-                <a class="navbar-brand" href="index.jsp">Registro</a>
-            </div>
-            <div class="navbar-header">
-            <s:url action="goto_login" var="login"/>
-
-                <a class="navbar-brand" href="login.jsp">Login</a>
-            </div>
+		
+	 	<nav class="navbar navbar-default">
+		 	<div class="container">
+			 	<div class="navbar-header">
+		            <s:url action="goto_twitter" var="twitter"/>
+		
+		                <a class="navbar-brand" href="index.jsp">Registro</a>
+		            </div>
+		            <div class="navbar-header">
+		            <s:url action="goto_login" var="login"/>
+		
+		                <a class="navbar-brand" href="login.jsp">Login</a>
+		        </div>
+	        </div>
+        </nav>
 
 	
 		<div class="col-sm-4">
 			<s:form action="registeruser">
-				<s:textfield name="usuario.name" label="Nombre" />
-				<s:textfield name="usuario.mail" label="Correo" />
-				<s:textfield name="usuario.password" label="Contraseña" />
+			<h1>Registro</h1>
+				<s:textfield name="usuario.name" label="Nombre" placeholder="Nombre"/>
+				<s:textfield name="usuario.mail" label="Correo" placeholder="Correo"/>
+				<s:textfield type="password" name="usuario.password" label="Contraseña" placeholder="Password"/>
 
 				<a> <s:submit value="Registrarme"/> </a>
 			</s:form>

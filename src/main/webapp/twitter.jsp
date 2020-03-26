@@ -64,7 +64,7 @@
 					tblData += 
 				    
 					   " <div class='media-12 border p-2' id='dl'>" +
-					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
+					        "<img src='images/img.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
 					       " <div class='media-body' >" + 
 					       	"<p id='idComentarioD'>" + this.id_comentario + "</p>"+
 					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
@@ -169,7 +169,20 @@
 </head>
 <body onload="report() ;"  >
 
-
+<nav class="navbar navbar-default">
+		 	<div class="container">
+			 	<div class="navbar-header">
+		            <s:url action="goto_twitter" var="twitter"/>
+		
+		                <a class="navbar-brand" href="index.jsp">Registro</a>
+		            </div>
+		            <div class="navbar-header">
+		            <s:url action="goto_login" var="login"/>
+		
+		                <a class="navbar-brand" href="login.jsp">Login</a>
+		        </div>
+	        </div>
+        </nav>
 	
 
 <div class="container">
@@ -178,8 +191,7 @@
 	<div class="row justify-content-center mb-2">
     	<div class="col-md-10 col-lg-8 aling-self-center">
       		<form action="#" class="d-flex justify-content-end flex-wrap">
-        		<textarea class="form-control" rows="5" id="comment" name="text" placeholder="Comentario"></textarea>
-        		<button type="button" data-toggle="modal" data-target="#myModal">Comentar</button>
+        		<button class='btn btn-sm btn-info' type="button" data-toggle="modal" data-target="#myModal">Tweet</button>
      		</form>
     </div>
   </div>
@@ -187,11 +199,11 @@
   <div class="row justify-content-center mb-2" >
     <div class="col-md-9 col-lg-9 align-self-center" id="container" >
     <div class="media-12 border p-2"id="dl">
-      <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
+      <img src="images/img.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
       <div class="media-body" >
-	      	<p id="idComentarioD">ID</p>
-	        <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	      	<p id="idComentarioD"></p>
+	        <h4><small><i></i></small></h4>
+	        <p></p>
 	        <div class="text-rigth">
 	          <button type="button" data-toggle="modal" data-target="#myModal">Responder</button>
 	          <a href="#">Editar</a>

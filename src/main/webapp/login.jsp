@@ -28,11 +28,12 @@
 
         <div class="col-sm-4">
             <s:form action="loginuser">
-                <s:textfield name="usuario.mail" label="Correo" />
-                <s:textfield name="usuario.name" label="Nombre" />
-                <s:textfield name="usuario.password" label="Contraseña" />
+            <h1>Login</h1>
+           		<s:textfield name="usuario.name" label="Nombre" placeholder="Nombre"/>
+                <s:textfield name="usuario.mail" label="Correo" placeholder="Correo"/>
+                <s:textfield type="password" name="usuario.password" label="Contraseña" placeholder="Password"/>
 
-                <a> <s:submit value="Ingresar"/> </a>
+                <a> <s:submit value="Login"/> </a>
             </s:form>
 
     </div>
