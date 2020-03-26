@@ -67,12 +67,12 @@
 	
 	function updateNewRecord() {
 		
-		var id_comentario = $("#idComentario").val();
-		console.log($("#contenido").val());
+		var id_comentario = $("#idComentarioD").text();
+		var contenidor = $("#contenidor").val();
 		$.ajax({
 			type:"POST",
 			url:"updatecomment.action",
-			data:"contenido="+$("#contenido").val()+ "&id_comentario=" + id_comentario,
+			data: "contenido=" + contenidor +  "&id_comentario=" + id_comentario,
             success:function(result){
             	var ht= result.msg;
     			$("#resp").html(ht);
@@ -211,7 +211,7 @@
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<div class="form-group">
-									<input type="text" name="contenido" id="contenido" class="form-control input-sm" placeholder="Contenido">
+									<input type="text" name="contenido" id="contenidor" class="form-control input-sm" placeholder="Contenido">
 								</div>
 							</div>
 							
