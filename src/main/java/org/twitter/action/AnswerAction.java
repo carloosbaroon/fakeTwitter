@@ -7,22 +7,22 @@ import org.twitter.dao_imp.ComentarioDAOImp;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CommentAction extends ActionSupport {
+public class AnswerAction extends ActionSupport {
 	private static final long serialVersionUID = -3827439829486925185L;
 	// getters and setters...
 	private UsuarioBean usuario;
-	private String contenido, msg, id, nombre;
+	private String contenidoa, msg, ida, nombrea;
 	ComentarioDAOImp dao = null;
 	
 	@Override
 	public String execute() throws Exception {
 		System.out.println("Entra");
-		System.out.println("Id usuario: "+ id.toString());
-		System.out.println("Nombre usuario: "+ nombre.toString());
+		System.out.println("Id usuario: "+ ida.toString());
+		System.out.println("Nombre usuario: "+ nombrea.toString());
 		dao = new ComentarioDAOImp();
 		
-		msg = dao.registerComment(id,contenido, nombre);
-		return "REGISTER";
+		msg = dao.registerAnswer(ida,contenidoa, nombrea);
+		return "REGISTER ANSWER";
 	}
 	
 	public UsuarioBean getUsuario() {
@@ -32,21 +32,13 @@ public class CommentAction extends ActionSupport {
 	public void setUsuario(UsuarioBean usuario) {
 		this.usuario = usuario;
 	}
-	
-	public String getId() {
-		return id;
+
+	public String getContenidoa() {
+		return contenidoa;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getContenido() {
-		return contenido;
-	}
-
-	public void setContenido(String contenido) {
-		this.contenido = contenido;
+	public void setContenidoa(String contenidoa) {
+		this.contenidoa = contenidoa;
 	}
 
 	public String getMsg() {
@@ -57,15 +49,23 @@ public class CommentAction extends ActionSupport {
 		this.msg = msg;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getIda() {
+		return ida;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setIda(String ida) {
+		this.ida = ida;
 	}
+
+	public String getNombrea() {
+		return nombrea;
+	}
+
+	public void setNombrea(String nombrea) {
+		this.nombrea = nombrea;
+	}
+
 	
 
 	
 }
-

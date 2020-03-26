@@ -32,7 +32,7 @@
                 <s:textfield name="usuario.name" label="Nombre" />
                 <s:textfield name="usuario.password" label="Contraseña" />
 
-                <a> <s:submit value="Registrarme"/> </a>
+                <a> <s:submit value="Ingresar"/> </a>
             </s:form>
 
     </div>

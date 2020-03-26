@@ -8,13 +8,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.twitter.bean.UsuarioBean;
-
+import org.twitter.bean.ComentarioBean;
 
 
 public class ComentarioDAOImp {
 	
 	private UsuarioBean usuario;
+	private ComentarioBean comentario;
 	
+	public ComentarioBean getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(ComentarioBean comentario) {
+		this.comentario = comentario;
+	}
+
 	public UsuarioBean getUsuario() {
 		return usuario;
 	}
@@ -50,7 +59,27 @@ public class ComentarioDAOImp {
 			}
 		}
 	}
-	
+	public String registerAnswer(String ida, String contenidoa, String nombreUsera) throws SQLException, Exception {
+		try {
+			String sql = "INSERT INTO respuesta2 (date, contenido,id_usuario, nombre_usuario)";
+	        sql+="VALUES (NOW(), ?, ?, ?)";
+			PreparedStatement ps = myconnection().prepareStatement(sql);
+			//System.out.println("Id usuario: "+ usuario.getId_usuario());
+			ps.setString(1, contenidoa);
+			ps.setString(2, ida);
+			ps.setString(3, nombreUsera);
+			
+			ps.executeUpdate();
+			return "Registration Successful";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return e.getMessage();
+		} finally {
+			if (myconnection() != null) {
+				myconnection().close();
+			}
+		}
+	}
 	
 	public ResultSet report() throws SQLException, Exception {
 		ResultSet rs = null;
@@ -70,13 +99,14 @@ public class ComentarioDAOImp {
 	}
 	
 	
-	public String updateComment(String contenido, String id)
+	public String updateComment(String contenido, String id_comentario)
 			throws SQLException, Exception {
 		try {
-			String sql = "UPDATE Comentario SET contenido= ?, date= NOW() WHERE id_comentario=?";
+			
+			String sql = "UPDATE Comentario SET contenido= ?, date= NOW()";
 			PreparedStatement ps = myconnection().prepareStatement(sql);
 			ps.setString(1, contenido);
-			ps.setString(2, id);
+			
 			
 			ps.executeUpdate();
 			return "Update Successful";

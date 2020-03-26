@@ -30,8 +30,8 @@ PRIMARY KEY (id_comentario)
 
 CREATE TABLE Respuesta
 (
- id_respuesta  Int NOT NULL ,
- fecha Date   NOT NULL ,
+ id_respuesta  Int NOT NULL Int NOT NULL AUTO_INCREMENT,
+ date  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  contenido Varchar(45)    NOT NULL ,
  id_comentario Int NOT NULL ,
  id_usuario Int     NOT NULL ,
@@ -39,6 +39,22 @@ CREATE TABLE Respuesta
 PRIMARY KEY (id_respuesta)
 );
 
+
+CREATE TABLE Respuesta2
+(
+ id_respuesta   Int NOT NULL AUTO_INCREMENT,
+ date  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ contenido Varchar(45)    NOT NULL ,
+ id_usuario Int     NOT NULL ,
+ nombre_usuario    Varchar(45) NOT NULL,
+
+PRIMARY KEY (id_respuesta)
+);
+
+
+
+
 Alter table Comentario add Foreign Key (id_usuario) references Usuario (id_usuario);
 Alter table Respuesta add Foreign Key (id_usuario) references Usuario (id_usuario);
+Alter table Respuesta2 add Foreign Key (id_usuario) references Usuario (id_usuario);
 Alter table Respuesta add Foreign Key (id_comentario) references Comentario (id_comentario);
