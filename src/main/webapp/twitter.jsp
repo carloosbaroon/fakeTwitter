@@ -69,7 +69,7 @@
 					       	"<p id='idComentarioD'>" + this.id_comentario + "</p>"+
 					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
 					         " <p>" +this.contenido + "</p>"+ 
-					         " <div class='text-rigth'>" +
+					         " <div class='text-rigth' id=answer>" +
 					         "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
 					         "<button onclick='deleteTweet(this);' class='btn btn-sm btn-danger'>Delete</button>"+ 
 					         "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#respuestaModal'>Respuesta</button>"+  
@@ -167,7 +167,7 @@
 <script>
 </script>
 </head>
-<body onload="report();" >
+<body onload="report() ;"  >
 
 
 	
