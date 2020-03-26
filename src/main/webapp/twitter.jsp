@@ -51,10 +51,12 @@
 					         " <p>" +this.contenido + "</p>"+ 
 					         " <div class='text-rigth'>" +
 
+
 					         "<button  class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
 					         "<button type='button' data-toggle='modal' data-target='#respuestaModal'>Comentar</button> "+ 
 
-					         "<button onclick='fetchOldRecord(this);' class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
+					         "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
+
 					         "<button onclick='deleteTweet(this);' class='btn btn-sm btn-danger'>Delete</button>"+ 
 
 					            "<a href='#'>Borrar</a>"+
@@ -93,12 +95,16 @@ function registerAnswer() {
 	}
 	function updateNewRecord() {
 		
-		var id_comentario = $("#idComentario").val();
+
+		var id_comentario = $("#idComentarioD").text();
+
 		var contenidor = $("#contenidor").val();
 		$.ajax({
 			type:"POST",
 			url:"updatecomment.action",
-			data: "contenidor=" + contenidor +  "&id_comentario=" + id_comentario,
+
+			data: "contenido=" + contenidor +  "&id_comentario=" + id_comentario,
+
             success:function(result){
             	var ht= result.msg;
     			$("#resp").html(ht);
@@ -294,7 +300,9 @@ function registerAnswer() {
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<div class="form-group">
-									<input type="text" name="contenidor" id="contenidor" class="form-control input-sm" placeholder="Contenido">
+
+									<input type="text" name="contenido" id="contenidor" class="form-control input-sm" placeholder="Contenido">
+
 								</div>
 							</div>
 							
