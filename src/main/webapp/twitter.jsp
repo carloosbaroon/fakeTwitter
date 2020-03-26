@@ -11,7 +11,7 @@
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	function registerComment() {
+	function registerComment(that) {
 		
 		var contenido = $("#contenido").val();
 		var id = $("#idUsuario").val();
@@ -24,7 +24,7 @@
 			data : "contenido=" + contenido + "&id=" + id + "&nombre=" + nombre,
 			success : function(data) {
 				var ht = data.msg;
-				$("#resp").html(ht);
+				$("#alta").html(ht);
 			},
 			error : function(data) {
 				alert("Some error occured.");
@@ -137,6 +137,10 @@ function registerAnswer() {
 </script>
 </head>
 <body onload="report();" >
+
+
+<div id=alta> </div>
+
 
 
 	
