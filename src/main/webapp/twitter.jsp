@@ -44,11 +44,12 @@
 					   " <div class='media-12 border p-2'>" +
 					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
 					       " <div class='media-body'>" + 
+					       	"<i id='idComentarioD'>" + this.id_comentario + "</i>"+
 					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
 					         " <p>" +this.contenido + "</p>"+ 
 					         " <div class='text-rigth'>" +
 					         "<button onclick='fetchOldRecord(this);' class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
-					            "<a href='#'>Editar</a>"+
+					         "<button onclick='deleteTweet(this);' class='btn btn-sm btn-danger'>Delete</button>"+ 
 					            "<a href='#'>Borrar</a>"+
 					           "</div>"+
 					       " </div>"+
@@ -79,7 +80,30 @@
             	alert("Some error occured.");
             }
 		});	
-	}	
+	}
+	
+	function deleteTweet(that) {	
+		var id_comentario = $("#idComentarioD").val();
+		$.ajax({
+			type:"POST",
+			url:"deletetweet.action",
+			data:"id_comentario="+ id_comentario,
+			success: function(data){
+				console.log($(id_comentario).val());
+				if(data.msg==="Delete Successful"){
+					alert(data.msg)
+					$(that).closest('div').remove();
+					
+				} else{
+					alert(data.msg)
+				}
+			},
+			error:function(data){
+				alert("Some error occured.");
+			}
+		});
+	
+
 </script>
 <script>
 </script>
@@ -106,40 +130,14 @@
     <div class="media-12 border p-2">
       <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
       <div class="media-body">
-        <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <div class="text-rigth">
-          <button type="button" data-toggle="modal" data-target="#myModal">Responder</button>
-          <a href="#">Editar</a>
-          <a href="#">Borrar</a>
-        </div>
-        <!-- Nested media object -->
-        <div class="media p-2">
-          <img src="img_avatar2.png"  class="mr-3 mt-3 rounded-circle" style="width:45px">
-          <div class="media-body">
-            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="text-rigth">
-              <a href="#">Responder</a>
-              <a href="#">Editar</a>
-              <a href="#">Borrar</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Nested media object -->
-        <div class="media p-2">
-          <img src="img_avatar2.png"  class="mr-3 mt-3 rounded-circle" style="width:45px">
-          <div class="media-body">
-            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="text-rigth">
-              <a href="#">Responder</a>
-              <a href="#">Editar</a>
-              <a href="#">Borrar</a>
-            </div>
-          </div>
-        </div>
+	      	<i id="idComentarioD">ID</i>
+	        <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        <div class="text-rigth">
+	          <button type="button" data-toggle="modal" data-target="#myModal">Responder</button>
+	          <a href="#">Editar</a>
+	          <a href="#">Borrar</a>
+	        </div>
       </div>
     </div>
   </div>
@@ -148,24 +146,7 @@
   <img src = "images/ad.png" style="width:75%; height:100%"/>
 
   </div>
-  </div>
-  <div class="row justify-content-center mb-2">
-    <div class="col-md-10 col-lg-10 align-self-center">
-    <div class="media-12 border p-2">
-        <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
-        <div class="media-body">
-          <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <div class="text-rigth">
-            <a href="#">Responder</a>
-            <a href="#">Editar</a>
-            <a href="#">Borrar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+  </div>  
   
    <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -202,8 +183,6 @@
 			<div class="text-center" id="resp" style="margin-top: 14px;"></div>
 	      </div>
           
-          
-          
            		
         </div>
        </div>
@@ -234,20 +213,15 @@
 								</div>
 							</div>
 							
-						<button onclick="updateNewRecord();" class="btn btn-info btn-block">Update</button>
-						<div id="resp" class="text-center" style="margin-top: 13px;"></div>
+							<button onclick="updateNewRecord();" class="btn btn-info btn-block">Update</button>
+							<div id="resp" class="text-center" style="margin-top: 13px;"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-  
-  
 </div>
-  
-
-	</div>
 
 
 </body>
