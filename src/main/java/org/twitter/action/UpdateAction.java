@@ -8,26 +8,15 @@ import org.twitter.bean.ComentarioBean;
 public class UpdateAction extends ActionSupport {
 	private static final long serialVersionUID = -3827439829486925185L;
 	// getters and setters
-
 	private String contenido,id_comentario,msg;
 	private ComentarioBean bean;
-
 	
-	
-	public String getId_comentario() {
-		return id_comentario;
+	public ComentarioBean getBean() {
+		return bean;
 	}
 
-	public void setId_comentario(String id_comentario) {
-		this.id_comentario = id_comentario;
-	}
-
-	public ComentarioBean getComentario() {
-		return comentario;
-	}
-
-	public void setComentario(ComentarioBean comentario) {
-		this.comentario = comentario;
+	public void setBean(ComentarioBean bean) {
+		this.bean = bean;
 	}
 
 	ComentarioDAOImp dao = null;
@@ -35,12 +24,10 @@ public class UpdateAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		System.out.println("Entra");
-
 		System.out.println("Contenido: "+ contenido);
 		System.out.println("Id comenatario: "+ id_comentario);
 		dao = new ComentarioDAOImp();
 		setMsg(dao.updateComment(contenido,id_comentario));
-
 		return "UPDATE";
 	}
 	
@@ -58,12 +45,12 @@ public class UpdateAction extends ActionSupport {
 		return msg;
 	}
 
-	public String getContenidor() {
-		return contenidor;
+	public String getContenido() {
+		return contenido;
 	}
 
-	public void setContenidor(String contenidor) {
-		this.contenidor = contenidor;
+	public void setContenido(String contenido) {
+		this.contenido = contenido;
 	}
 
 	public void setMsg(String msg) {
