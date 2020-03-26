@@ -83,7 +83,7 @@
 	}
 	
 	function deleteTweet(that) {	
-		var id_comentario = $("#idComentarioD").val();
+		var id_comentario = $("#idComentarioD").text();
 		console.log(id_comentario); 
 		$.ajax({
 			type:"POST",
