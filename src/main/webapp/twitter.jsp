@@ -48,7 +48,7 @@
 					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
 					         " <p>" +this.contenido + "</p>"+ 
 					         " <div class='text-rigth'>" +
-					         "<button onclick='fetchOldRecord(this);' class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
+					         "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
 					         "<button onclick='deleteTweet(this);' class='btn btn-sm btn-danger'>Delete</button>"+ 
 					            "<a href='#'>Borrar</a>"+
 					           "</div>"+
@@ -68,6 +68,7 @@
 	function updateNewRecord() {
 		
 		var id_comentario = $("#idComentario").val();
+		console.log($("#contenido").val());
 		$.ajax({
 			type:"POST",
 			url:"updatecomment.action",
