@@ -70,7 +70,7 @@
 		var id_comentario = $("#idComentario").val();
 		$.ajax({
 			type:"POST",
-			url:"deletetweet.action",
+			url:"updatecomment.action",
 			data:"contenido="+$("#contenido").val()+ "&id_comentario=" + id_comentario,
             success:function(result){
             	var ht= result.msg;
