@@ -16,9 +16,10 @@ public class AnswerAction extends ActionSupport {
 	
 	@Override
 	public String execute() throws Exception {
-		System.out.println("Entra");
+		System.out.println("Respuesta");
 		System.out.println("Id usuario: "+ ida.toString());
 		System.out.println("Nombre usuario: "+ nombrea.toString());
+		System.out.println("Contenido: "+ contenidoa.toString());
 		dao = new ComentarioDAOImp();
 		
 		msg = dao.registerAnswer(ida,contenidoa, nombrea);
