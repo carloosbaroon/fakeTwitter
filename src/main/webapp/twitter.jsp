@@ -43,14 +43,20 @@
 				$.each(result.beanList, function() {					
 					tblData += 
 				    
-					   " <div class='media-12 border p-2'>" +
+					   " <div class='media-12 border p-2' id='dl'>" +
 					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
-					       " <div class='media-body'>" + 
+					       " <div class='media-body' >" + 
+					       	"<p id='idComentarioD'>" + this.id_comentario + "</p>"+
 					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
 					         " <p>" +this.contenido + "</p>"+ 
 					         " <div class='text-rigth'>" +
+
 					         "<button  class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
 					         "<button type='button' data-toggle='modal' data-target='#respuestaModal'>Comentar</button> "+ 
+
+					         "<button onclick='fetchOldRecord(this);' class='btn btn-sm btn-info' data-toggle='modal' data-target='#updateModal'>Update</button>"+ 
+					         "<button onclick='deleteTweet(this);' class='btn btn-sm btn-danger'>Delete</button>"+ 
+
 					            "<a href='#'>Borrar</a>"+
 					           "</div>"+
 					       " </div>"+
@@ -101,7 +107,31 @@ function registerAnswer() {
             	alert("Some error occured.");
             }
 		});	
-	}	
+	}
+	
+	function deleteTweet(that) {	
+		var id_comentario = $("#idComentarioD").text();
+		console.log(id_comentario); 
+		$.ajax({
+			type:"POST",
+			url:"deletetweet.action",
+			data:"id_comentario="+ id_comentario,
+			success: function(data){
+				if(data.msg==="Delete Successful"){
+					alert(data.msg)
+					$(that).closest('#dl').remove();
+					
+				} else{
+					alert(data.msg)
+				}
+			},
+			error:function(data){
+				alert("Some error occured.");
+			}
+		});
+	}
+	
+
 </script>
 <script>
 </script>
@@ -125,43 +155,17 @@ function registerAnswer() {
  
   <div class="row justify-content-center mb-2" >
     <div class="col-md-9 col-lg-9 align-self-center" id="container" >
-    <div class="media-12 border p-2">
+    <div class="media-12 border p-2"id="dl">
       <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
-      <div class="media-body">
-        <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <div class="text-rigth">
-          <button type="button" data-toggle="modal" data-target="#myModal">Responder</button>
-          <a href="#">Editar</a>
-          <a href="#">Borrar</a>
-        </div>
-        <!-- Nested media object -->
-        <div class="media p-2">
-          <img src="img_avatar2.png"  class="mr-3 mt-3 rounded-circle" style="width:45px">
-          <div class="media-body">
-            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="text-rigth">
-              <a href="#">Responder</a>
-              <a href="#">Editar</a>
-              <a href="#">Borrar</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Nested media object -->
-        <div class="media p-2">
-          <img src="img_avatar2.png"  class="mr-3 mt-3 rounded-circle" style="width:45px">
-          <div class="media-body">
-            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="text-rigth">
-              <a href="#">Responder</a>
-              <a href="#">Editar</a>
-              <a href="#">Borrar</a>
-            </div>
-          </div>
-        </div>
+      <div class="media-body" >
+	      	<p id="idComentarioD">ID</p>
+	        <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        <div class="text-rigth">
+	          <button type="button" data-toggle="modal" data-target="#myModal">Responder</button>
+	          <a href="#">Editar</a>
+	          <a href="#">Borrar</a>
+	        </div>
       </div>
     </div>
   </div>
@@ -170,24 +174,7 @@ function registerAnswer() {
   <img src = "images/ad.png" style="width:75%; height:100%"/>
 
   </div>
-  </div>
-  <div class="row justify-content-center mb-2">
-    <div class="col-md-10 col-lg-10 align-self-center">
-    <div class="media-12 border p-2">
-        <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
-        <div class="media-body">
-          <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <div class="text-rigth">
-            <a href="#">Responder</a>
-            <a href="#">Editar</a>
-            <a href="#">Borrar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+  </div>  
   
    <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -223,8 +210,6 @@ function registerAnswer() {
 			<button onclick="registerComment();" type="button" class="btn btn-success btn-block">Register</button>
 			<div class="text-center" id="resp" style="margin-top: 14px;"></div>
 	      </div>
-          
-          
           
            		
         </div>
@@ -309,20 +294,15 @@ function registerAnswer() {
 								</div>
 							</div>
 							
-						<button onclick="updateNewRecord();" class="btn btn-info btn-block">Update</button>
-						<div id="resp" class="text-center" style="margin-top: 13px;"></div>
+							<button onclick="updateNewRecord();" class="btn btn-info btn-block">Update</button>
+							<div id="resp" class="text-center" style="margin-top: 13px;"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-  
-  
 </div>
-  
-
-	</div>
 
 
 </body>
