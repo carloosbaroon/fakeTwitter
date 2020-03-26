@@ -41,9 +41,9 @@
 				$.each(result.beanList, function() {					
 					tblData += 
 				    
-					   " <div class='media-12 border p-2'>" +
+					   " <div class='media-12 border p-2' id='dl'>" +
 					        "<img src='img_avatar1.png' class='mr-3 mt-3 rounded-circle' style='width:45px'>" +
-					       " <div class='media-body'>" + 
+					       " <div class='media-body' >" + 
 					       	"<p id='idComentarioD'>" + this.id_comentario + "</p>"+
 					          "<h4>" + this.nombre_usuario + "<small><i> Posted on " +  this.date + "</i></small></h4> "+
 					         " <p>" +this.contenido + "</p>"+ 
@@ -92,7 +92,7 @@
 			success: function(data){
 				if(data.msg==="Delete Successful"){
 					alert(data.msg)
-					$(that).closest('div').remove();
+					$(that).closest('#dl').remove();
 					
 				} else{
 					alert(data.msg)
@@ -128,9 +128,9 @@
  
   <div class="row justify-content-center mb-2" >
     <div class="col-md-9 col-lg-9 align-self-center" id="container" >
-    <div class="media-12 border p-2">
+    <div class="media-12 border p-2"id="dl">
       <img src="img_avatar1.png" class="mr-3 mt-3 rounded-circle" style="width:45px">
-      <div class="media-body">
+      <div class="media-body" >
 	      	<p id="idComentarioD">ID</p>
 	        <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
 	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
