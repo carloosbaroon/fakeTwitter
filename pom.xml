@@ -14,7 +14,7 @@
   <url>http://www.example.com</url>
 
 <properties>
-        <struts2.version>2.3.37</struts2.version>
+        <struts2.version>2.5.26</struts2.version>
         <log4j2.version>2.3</log4j2.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
